@@ -1,0 +1,6 @@
+#generate client private key
+openssl genrsa -out client-private-key.pem 1024
+#generate client cert request
+openssl req -new -out client-cert.csr -key client-private-key.pem
+openssl x509 -req -in client-cert.csr -out client-cert.pem  -CA root-cert.pem -CAkey root-private-key.pem -CAcreateserial -days 700
+

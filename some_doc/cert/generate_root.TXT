@@ -1,0 +1,7 @@
+#!/bin/sh
+#generate root private key
+openssl genrsa -out root-private-key.pem 1024
+#generate root cert request
+openssl req -new -out root-cert.csr -key root-private-key.pem
+#sign ca by itself private key
+openssl x509 -req -in  root-cert.csr -out root-cert.pem -signkey root-private-key.pem -days 3650

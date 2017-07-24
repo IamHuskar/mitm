@@ -1,0 +1,1 @@
+sudo iptables -t nat -A PREROUTING -s 192.168.0.2 -p tcp -j DNAT --to 192.168.0.3:20010
